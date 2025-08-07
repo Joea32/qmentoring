@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quasi Limited Mentoring</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #040f1f;
+      color: #e0e6f3;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+    a {
+      color: #0ef2f2;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background: #112240;
+      box-shadow: 0 4px 10px rgba(14, 242, 242, 0.2);
+    }
+    header h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      margin: 0;
+      color: #ff6f3c;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    nav {
+      margin-top: 15px;
+    }
+    nav a {
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+    }
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .hero h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: #0ef2f2;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #a1b3ca;
+    }
+    .btn-primary {
+      background: #ff6f3c;
+      color: #0a192f;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 10px rgba(255, 111, 60, 0.5);
+      transition: background 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #ff845a;
+    }
+
+    /* Founder Section */
+    #founder {
+      background: #112240;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(255, 111, 60, 0.2);
+      margin-bottom: 60px;
+    }
+    #founder .founder-title {
+      font-size: 2.5rem;
+      font-family: 'Merriweather', serif;
+      color: #ff6f3c;
+      margin-bottom: 0.5rem;
+    }
+    #founder .founder-name {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0ef2f2;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    #founder .founder-text {
+      font-size: 1.125rem;
+      color: #c9d1e3;
+      margin-bottom: 1.4rem;
+    }
+    #founder .founder-highlight {
+      color: #0ef2f2;
+      font-weight: 700;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 60px;
+    }
+    h2.section-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #ff6f3c;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #0ef2f2;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    /* Mentors grid */
+    .grid-2 {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .mentor {
+      background: #112240;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      padding: 30px;
+      flex: 1 1 350px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .mentor:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 35px rgba(255, 111, 60, 0.7);
+    }
+    .mentor h3 {
+      font-family: 'Merriweather', serif;
+      color: #0ef2f2;
+      margin-bottom: 10px;
+    }
+    .mentor p {
+      color: #a1b3ca;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: #112240;
+      border-left: 5px solid #ff6f3c;
+      padding: 20px 30px;
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #c9d1e3;
+      box-shadow: 0 4px 15px rgba(255, 111, 60, 0.3);
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 12px;
+      color: #0ef2f2;
+      font-style: normal;
+    }
+
+    /* Blog posts */
+    .blog-post {
+      background: #112240;
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+    .blog-post h3 {
+      margin-top: 0;
+      color: #ff6f3c;
+      font-family: 'Merriweather', serif;
+    }
+    .blog-post p {
+      color: #a1b3ca;
+    }
+    .blog-post a {
+      font-weight: 600;
+      color: #0ef2f2;
+    }
+
+    /* FAQ */
+    details {
+      background: #112240;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      box-shadow: inset 0 0 10px rgba(255, 111, 60, 0.2);
+      cursor: pointer;
+    }
+    summary {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ff6f3c;
+      outline: none;
+    }
+    details[open] {
+      background: #0a192f;
+      box-shadow: 0 0 20px rgba(255, 111, 60, 0.7);
+    }
+    details p {
+      color: #c9d1e3;
+      margin-top: 10px;
+    }
+
+    /* Form */
+    form {
+      background: #112240;
+      padding: 25px 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      box-shadow: 0 6px 25px rgba(255, 111, 60, 0.4);
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #c9d1e3;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    input, select {
+      background: #0a192f;
+      color: #e0e6f3;
+      border: 2px solid #0ef2f2;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #ff6f3c;
+      background: #112240;
+    }
+    textarea {
+      background: #0a192f;
+      color: #e0e6f3;
+      resize: vertical;
+      min-height: 100px;
+    }
+    .btn {
+      background: #0ef2f2;
+      border: none;
+      color: #0a192f;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+    .btn:hover {
+      background: #0bb7b7;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      background: #112240;
+      color: #7f8ba6;
+      font-size: 0.9rem;
+      border-top: 1px solid #0ef2f2;
+    }  
+
+    @media (max-width: 600px) {
+      .grid-2 {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Quasi Limited Mentoring</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#founder">Founder</a>
+    <a href="#mentors">Mentors</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#blog">Journey</a>
+    <a href="#faq">FAQ</a>
+    <a href="#booking">Book</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="about">
+    <h2>Empowering Lives Through Mentorship</h2>
+    <p>At Quasi Limited, we connect you with trusted mentors who support your mental health, career, and personal growth journey.</p>
+    <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">Book Your Session</button>
+  </section>
+
+  <!-- Founder Section -->
+  <section id="founder">
+    <h2 class="founder-title">Our Founder</h2>
+    <p class="founder-name">Patricia Lungo</p>
+    <p class="founder-text">
+      With a distinguished career at <span class="founder-highlight">Hillingdon Council</span>, Patricia Lungo has become a beacon of hope and empowerment for communities navigating complex social challenges. Armed with a <strong>Bachelor of Science (Honours) in Criminology and Psychology</strong>, Patricia masterfully combines rigorous academic insight with years of hands-on experience to drive transformative, meaningful change.
+    </p>
+    <p class="founder-text">
+      Patricia’s passion extends far beyond her professional accomplishments. For years, she has devoted herself to <em>social work volunteering</em>—standing alongside vulnerable individuals and families with unwavering compassion and dedication.
+    </p>
+    <p class="founder-text">
+      Among Patricia’s most impactful contributions is her leadership of a <strong>groundbreaking community outreach program</strong> during one of the toughest periods faced by local residents. This initiative not only delivered vital resources but also rekindled hope and resilience, creating a lasting legacy of support and solidarity.
+    </p>
+    <p class="founder-text">
+      Today, Patricia continues to champion community empowerment through mentorship and advocacy, inspiring others to carry forward her vision of a world where every individual is supported, valued, and heard.
+    </p>
+  </section>
+
+  <!-- Rest of your existing content follows -->
+  <section id="mentors">
+    <h2 class="section-title">Meet Our Mentors</h2>
+    <div class="grid-2">
+      <article class="mentor">
+        <h3>Sarah Doe</h3>
+        <p>Experienced mental health mentor specializing in anxiety and stress management.</p>
+      </article>
+      <article class="mentor">
+        <h3>James Doe</h3>
+        <p>Career coach with a decade of experience helping clients find fulfilling paths.</p>
+      </article>
+      <article class="mentor">
+        <h3>Leah Doe</h3>
+        <p>Personal development mentor focusing on confidence and life skills.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2 class="section-title">What People Say</h2>
+    <div>
+      <blockquote class="testimonial">
+        "Quasi Limited gave me the support I needed during a tough time. The mentors truly care."<br />
+        <strong>- Anna M.</strong>
+      </blockquote>
+      <blockquote class="testimonial">
+        "Professional, friendly, and effective coaching that changed my life."<br />
+        <strong>- Mark R.</strong>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2 class="section-title">Our Journey</h2>
+    <article class="blog-post">
+      <h3>From Idea to Reality</h3>
+      <p>Starting Quasi Limited was about making mental health and mentoring accessible and safe for everyone. Our team is passionate about helping you grow.</p>
+      <a href="#about">Read more...</a>
+    </article>
+    <article class="blog-post">
+      <h3>Building Trust One Session at a Time</h3>
+      <p>Every connection matters. We vet our mentors carefully and prioritize your safety and comfort above all else.</p>
+      <a href="#about">Read more...</a>
+    </article>
+  </section>
+
+  <section id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <details>
+      <summary>How can I book a session?</summary>
+      <p>You can book a session through the booking form below or contact us directly.</p>
+    </details>
+    <details>
+      <summary>Are the mentors vetted?</summary>
+      <p>Yes, all our mentors are carefully vetted and trained to provide professional support.</p>
+    </details>
+  </section>
+
+  <section id="booking">
+    <h2 class="section-title">Book a Session</h2>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your phone number" />
+      <label for="service">Select Service</label>
+      <select id="service" name="service" required>
+        <option value="">--Please choose an option--</option>
+        <option value="mental_health">Mental Health Mentoring</option>
+        <option value="career">Career Coaching</option>
+        <option value="personal_development">Personal Development</option>
+      </select>
+      <label for="message">Additional Information</label>
+      <textarea id="message" name="message" rows="4" placeholder="Tell us more..."></textarea>
+      <button type="submit" class="btn">Book Now</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p>Email: <a href="mailto:info@quasilimitedmentoring.com">info@quasilimitedmentoring.com</a></p>
+    <p>Phone: <a href="tel:+441234567890">+44 1234 567 890</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Quasi Limited Mentoring</p>
+</footer>
+</body>
+</html>
